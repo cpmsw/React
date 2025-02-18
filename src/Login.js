@@ -49,6 +49,12 @@ const Login = () => {
           setStep(3); // Step 3: Enter TOTP code
         }
       } else {
+      if (userData.token) {
+        // Store token in localStorage
+        localStorage.setItem("jwttoken", userData.token);
+        localStorage.setItem("isTOTPEnabled", userData.isTOTPEnabled);
+      }
+
         navigate('/dashboard'); // Navigate to home if TOTP is not enabled
       }
     } catch (error) {
