@@ -1,8 +1,14 @@
 import React from "react";
-import { getAccessLevel } from "./utils/authUtils";
+import { useAuth } from "../context/AuthProvider";
 
 const ManageAdmin = () => {
-  const accessLevel = getAccessLevel("Manage Admin");
+   const { accessLevels } = useAuth();
+  // console.log("Access Levels:", accessLevels);
+  // console.log("Access Level for ABC:", accessLevels["ABC"]);
+  // console.log("Access Level for Manage Admin:", accessLevels["Manage Admin"]);
+
+
+  const accessLevel = accessLevels["Manage Admin"] || 0;
 
   const getMessage = () => {
     switch (accessLevel) {
@@ -21,8 +27,6 @@ const ManageAdmin = () => {
     <div>
       <h1>Manage Admin</h1>
       <p>{getMessage()}</p>
-      <button disabled={accessLevel < 2}>Edit</button>
-
     </div>
   );
 };

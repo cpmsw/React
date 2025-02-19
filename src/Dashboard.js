@@ -73,6 +73,22 @@ const Dashboard = () => {
                 >
                     Fetch User Count
                 </button>
+
+{/* Navigate to ManageAdmin */}
+<button
+                    onClick={() => navigate("/manageadmin")}
+                    style={{
+                        padding: "10px 20px",
+                        margin: "10px",
+                        cursor: "pointer",
+                        backgroundColor: "#5cb85c",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "5px",
+                    }}
+                >
+                    Go to Manage Admin
+                </button>                
             </div>
         </div>
     );
